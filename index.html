@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdelrahman Mahdy — 3D Artist specializing in furniture and product visualization.">
+  <title>Abdelrahman Mahdy | 3D Artist</title>
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --panel: #141922;
+      --panel-2: #1a202b;
+      --text: #f3f5f8;
+      --muted: #a4afbf;
+      --line: #293241;
+      --accent: #65aaff;
+      --accent-2: #9acaff;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), 88%); margin: 0 auto; }
+    .top {
+      background:
+        radial-gradient(ellipse at 80% 35%, rgba(69, 117, 178, .16), transparent 38%),
+        var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 78px; display: flex; align-items: center;
+      justify-content: space-between; gap: 22px;
+    }
+    .logo { font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 25px; color: var(--muted); font-size: .9rem; }
+    .nav-links a:hover, .text-link:hover { color: var(--accent-2); }
+    .hero {
+      min-height: 450px; display: grid; grid-template-columns: 1.25fr .75fr;
+      align-items: center; gap: 48px; padding-top: 45px; padding-bottom: 62px;
+    }
+    .kicker { color: var(--accent); font-size: .75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); line-height: 1.08; letter-spacing: -2px; margin: 14px 0; }
+    .role { color: #d0d8e4; font-size: clamp(1.05rem, 2vw, 1.35rem); }
+    .hero-copy { max-width: 620px; color: var(--muted); margin: 20px 0 27px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-block; border: 1px solid #4a5667; border-radius: 7px;
+      padding: 10px 18px; font-weight: 700; font-size: .9rem; transition: .2s ease;
+    }
+    .btn.primary { background: var(--accent); color: #07111d; border-color: var(--accent); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary:hover { background: var(--accent-2); }
+    .hero-art {
+      min-height: 285px; border: 1px solid #2c394b; border-radius: 18px;
+      background: linear-gradient(145deg, #1b2635, #111720 70%);
+      display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .hero-art::before, .hero-art::after {
+      content: ""; position: absolute; border: 1px solid rgba(130, 181, 238, .24);
+      transform: rotate(-28deg); border-radius: 24px;
+    }
+    .hero-art::before { width: 190px; height: 240px; }
+    .hero-art::after { width: 135px; height: 185px; }
+    .monogram { z-index: 1; font-size: 4rem; letter-spacing: -7px; font-weight: 800; color: #dcecff; }
+    .art-caption { position: absolute; bottom: 16px; left: 18px; color: #8999ae; font-size: .72rem; letter-spacing: 1.5px; text-transform: uppercase; }
+    section { padding: 72px 0; }
+    .section-title { font-size: 2rem; letter-spacing: -.7px; margin-bottom: 18px; }
+    .section-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: 1.8px; font-size: .72rem; font-weight: 700; margin-bottom: 7px; }
+    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 58px; align-items: start; }
+    .about-copy { color: var(--muted); }
+    .about-copy p + p { margin-top: 14px; }
+    .info-list { display: grid; gap: 13px; border-left: 1px solid var(--line); padding-left: 26px; }
+    .info-item strong { display: block; font-size: .92rem; }
+    .info-item span { color: var(--muted); font-size: .85rem; }
+    .skills-section { background: #10151d; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .skill { border: 1px solid #303b4b; background: var(--panel); border-radius: 999px; padding: 8px 15px; color: #d5deea; font-size: .85rem; }
+    .project-intro { color: var(--muted); margin-top: -6px; margin-bottom: 27px; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project {
+      border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+      background: var(--panel); transition: transform .2s, border-color .2s;
+    }
+    .project:hover { transform: translateY(-3px); border-color: #536d8c; }
+    .project-visual {
+      height: 175px; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 50% 45%, #344457, #1a222e 68%);
+      color: #d5e5f7; font-size: 2.5rem; font-weight: 800; letter-spacing: -2px;
+      position: relative; overflow: hidden;
+    }
+    .project-visual::before {
+      content: ""; position: absolute; width: 115px; height: 115px;
+      border: 1px solid #8bb7e64a; border-radius: 50%;
+    }
+    .project-visual span { z-index: 1; }
+    .project-visual.furniture { background: radial-gradient(circle at 50% 45%, #554b41, #25211f 72%); }
+    .project-visual.ivision { background: radial-gradient(circle at 50% 45%, #26445c, #151e29 72%); }
+    .project-body { padding: 19px 20px 21px; }
+    .project-body h3 { font-size: 1.05rem; margin-bottom: 7px; }
+    .project-body p { color: var(--muted); font-size: .88rem; }
+    .project-note { color: #8493a7; font-size: .75rem; margin-top: 11px; }
+    .contact { background: #10151d; border-top: 1px solid var(--line); text-align: center; }
+    .contact .section-title { margin-bottom: 8px; }
+    .contact-copy { color: var(--muted); margin-bottom: 23px; }
+    .contact-details { margin-top: 24px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 25px; color: #d0d9e5; font-size: .9rem; }
+    footer { border-top: 1px solid var(--line); color: #8491a3; font-size: .8rem; }
+    .footer-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    @media (max-width: 760px) {
+      nav { align-items: flex-start; flex-direction: column; justify-content: center; padding: 19px 0; }
+      .nav-links { gap: 16px; }
+      .hero, .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero { padding-top: 48px; }
+      .hero-art { min-height: 220px; }
+      .info-list { border-left: 0; border-top: 1px solid var(--line); padding: 22px 0 0; }
+      .projects { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      .footer-inner { padding: 17px 0; align-items: flex-start; flex-direction: column; justify-content: center; }
+    }
+    @media (max-width: 420px) {
+      .container { width: 90%; }
+      h1 { font-size: 2.45rem; }
+      .nav-links { font-size: .82rem; gap: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top" id="home">
+    <nav class="container">
+      <a class="logo" href="#home">Abdelrahman <span>Mahdy</span></a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <div class="hero container">
+      <div>
+        <p class="kicker">3D Artist Portfolio</p>
+        <h1>Abdelrahman<br>Mahdy</h1>
+        <p class="role">3D Artist | Furniture &amp; Product Visualization</p>
+        <p class="hero-copy">
+          I create photorealistic furniture and product visuals, focusing on realistic
+          lighting, materials, composition, and carefully staged scenes. I also build
+          real-time environments and cinematic visualizations in Unreal Engine 5.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#projects">Explore My Work</a>
+          <a class="btn" href="#contact">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Abstract initials illustration">
+        <div class="monogram">AM</div>
+        <div class="art-caption">Furniture · Products · Environments</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="section-kicker">A little about me</p>
+          <h2 class="section-title">About Me</h2>
+          <p>
+            I'm a 3D Artist based in Cairo, Egypt, specializing in furniture and product
+            visualization using Blender. My work focuses on photorealistic rendering,
+            realistic materials, lighting, scene composition, and interior staging.
+          </p>
+          <p>
+            I have worked as a freelance 3D Artist with MaxHomz, creating furniture
+            visualizations for commercial presentation. I also developed iVision Camera,
+            a real-time traffic-monitoring simulation project in Unreal Engine 5.
+          </p>
+        </div>
+        <div class="info-list">
+          <div class="info-item"><strong>Location</strong><span>Cairo, Egypt</span></div>
+          <div class="info-item"><strong>Education</strong><span>Bachelor of Information Technology (expected 2029)</span><br><span>New Cairo Technological University · 2025–2029</span></div>
+          <div class="info-item"><strong>Languages</strong><span>Arabic — Native · English — B1+</span></div>
+          <div class="info-item"><strong>Focus</strong><span>Furniture and product visualization, photorealistic rendering, real-time environments</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <p class="section-kicker">What I work with</p>
+        <h2 class="section-title">Skills &amp; Software</h2>
+        <div class="skills">
+          <span class="skill">Blender</span>
+          <span class="skill">Unreal Engine 5</span>
+          <span class="skill">DaVinci Resolve</span>
+          <span class="skill">Cycles</span>
+          <span class="skill">Eevee</span>
+          <span class="skill">3D Modeling</span>
+          <span class="skill">Furniture Visualization</span>
+          <span class="skill">Product Visualization</span>
+          <span class="skill">Interior Visualization</span>
+          <span class="skill">Photorealistic Rendering</span>
+          <span class="skill">Lighting &amp; PBR Materials</span>
+          <span class="skill">Scene &amp; Camera Composition</span>
+          <span class="skill">UV Mapping</span>
+          <span class="skill">Rendering Optimization</span>
+          <span class="skill">Asset Management</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <p class="section-kicker">Selected work</p>
+        <h2 class="section-title">Projects</h2>
+        <p class="project-intro">A quick look at the two project areas described in my CV.</p>
+        <div class="projects">
+          <article class="project">
+            <div class="project-visual furniture"><span>3D / PRODUCT</span></div>
+            <div class="project-body">
+              <h3>Furniture Visualization Portfolio</h3>
+              <p>Furniture models and photorealistic renders, including upholstered beds, contemporary and wooden beds, shoe cabinets, and shoe benches. Focused on PBR materials, realistic lighting, and presentation-ready scenes.</p>
+              <p class="project-note">Replace this visual with a real render from your portfolio when ready.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-visual ivision"><span>iVISION</span></div>
+            <div class="project-body">
+              <h3>iVision Camera Simulation</h3>
+              <p>A real-time traffic-monitoring simulation developed in Unreal Engine 5, featuring a city environment with roads, buildings, vehicles, cinematic camera work, lighting, sequencing, and environmental storytelling.</p>
+              <p class="project-note">Replace this visual with a screenshot from your actual project when ready.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <p class="section-kicker">Contact</p>
+        <h2 class="section-title">Let's talk about your project.</h2>
+        <p class="contact-copy">For freelance work and project inquiries, you can reach me here.</p>
+        <div class="buttons" style="justify-content:center">
+          <a class="btn primary" href="mailto:abdelrahmanmahdy203@gmail.com">Email Me</a>
+          <a class="btn" href="https://www.behance.net/abdelramahdy88" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>
+        </div>
+        <div class="contact-details">
+          <span>abdelrahmanmahdy203@gmail.com</span>
+          <span>+20 115 673 5554</span>
+          <span>Cairo, Egypt</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 Abdelrahman Mahdy</p>
+      <a class="text-link" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
